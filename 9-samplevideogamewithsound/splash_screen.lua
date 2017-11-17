@@ -1,10 +1,10 @@
 -----------------------------------------------------------------------------------------
 --
 -- splash_screen.lua
--- Created by: Your Name
--- Date: Month Day, Year
+-- Created by: Alecka Victoria
+-- Date: November 17, 2017
 -- Description: This is the splash screen of the game. It displays the 
--- company logo that...
+-- company logo that fades in and then fades out ( as per request of the client)
 -----------------------------------------------------------------------------------------
 
 -- Use Composer Library
@@ -18,29 +18,31 @@ sceneName = "splash_screen"
 -- Create Scene Object
 local scene = composer.newScene( sceneName )
 
+
+
 ----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 -----------------------------------------------------------------------------------------
  
 -- The local variables for this scene
-local beetleship
-local scrollXSpeed = 8
-local scrollYSpeed = -3
-local jungleSounds = audio.loadSound("Sounds/animals144.mp3")
-local jungleSoundsChannel
+local companyLogo
+
+-- no sounds or scroll speed
 
 --------------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 --------------------------------------------------------------------------------------------
 
--- The function that moves the beetleship across the screen
-local function moveBeetleship()
-    beetleship.x = beetleship.x + scrollXSpeed
-    beetleship.y = beetleship.y + scrollYSpeed
+-- the function for the scroll speed of the beetleship is deleted. 
+local function fadeInCompanyLogo( )
+
+    -- The function makes the company logo fade in then fade out
+    companyLogo.alpha = companyLogo.alpha + 0.1
+
 end
 
 -- The function that will go to the main menu 
-local function gotoMainMenu()
+local function gotoMainMenu ( )
     composer.gotoScene( "main_menu" )
 end
 
@@ -57,15 +59,18 @@ function scene:create( event )
     -- set the background to be black
     display.setDefault("background", 0, 0, 0)
 
-    -- Insert the beetleship image
-    beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
+    -- Insert the companyLogo image
+    companyLogo = display.newImageRect("Images/CompanyLogo.png", 200, 200)
 
-    -- set the initial x and y position of the beetleship
-    beetleship.x = 100
-    beetleship.y = display.contentHeight/2
+    -- set the initial x and y position of the companyLogo
+    companyLogo.x = 100
+    companyLogo.y = display.contentHeight/2
+
+    -- initialize the company logo to be transparent
+    companyLogo.alpha = 0
 
     -- Insert objects into the scene group in order to ONLY be associated with this scene
-    sceneGroup:insert( beetleship )
+    sceneGroup:insert( companyLogo )
 
 end -- function scene:create( event )
 
@@ -87,16 +92,13 @@ function scene:show( event )
     if ( phase == "will" ) then
        
     -----------------------------------------------------------------------------------------
-
     elseif ( phase == "did" ) then
-        -- start the splash screen music
-        jungleSoundsChannel = audio.play(jungleSounds )
 
-        -- Call the moveBeetleship function as soon as we enter the frame.
-        Runtime:addEventListener("enterFrame", moveBeetleship)
+        -- Call the fadeCompanyLogo function as soon as we enter the frame.
+        Runtime:addEventListener("enterFrame", fadeInCompanyLogo )
 
         -- Go to the main menu screen after the given time.
-        timer.performWithDelay ( 3000, gotoMainMenu)          
+        timer.performWithDelay ( 3000, gotoMainMenu )          
         
     end
 
@@ -118,13 +120,11 @@ function scene:hide( event )
     -- Example: stop timers, stop animation, stop audio, etc.
     if ( phase == "will" ) then  
 
-    -----------------------------------------------------------------------------------------
-
     -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
         
-        -- stop the jungle sounds channel for this screen
-        audio.stop(jungleSoundsChannel)
+        -- removed sound channel, because there is no sound
+        
     end
 
 end --function scene:hide( event )
