@@ -1,8 +1,8 @@
 -----------------------------------------------------------------------------------------
 --
 -- splash_screen.lua
--- Created by: Your Name
--- Date: Month Day, Year
+-- Created by: Alecka Victoria
+--  Date: November 20, 2017
 -- Description: This is the splash screen of the game. It displays the 
 -- company logo that fades in the screen
 -----------------------------------------------------------------------------------------
