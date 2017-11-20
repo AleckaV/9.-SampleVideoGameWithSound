@@ -37,7 +37,7 @@ local backButton
 -----------------------------------------------------------------------------------------
 -- Create transition back to main menu
     local function BackTransition( )
-    composer.gotoScene( "main_menu", {effect = "zoomOutInFadeRotate", time = 500})
+    composer.gotoScene( "main_menu", {effect = "zoomInOutFade", time = 500})
     end
 
 -- The function called when the screen doesn't exist
