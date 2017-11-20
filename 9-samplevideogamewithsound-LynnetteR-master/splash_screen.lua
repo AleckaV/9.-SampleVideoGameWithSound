@@ -107,7 +107,7 @@ function scene:show( event )
         timer.performWithDelay ( 3000, callFadeOut)
 
         -- Go to the main menu screen after the given time.
-        timer.performWithDelay ( 1000, gotoMainMenu)          
+        timer.performWithDelay ( 6000, gotoMainMenu)          
         
     end
 
