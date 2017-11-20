@@ -1,10 +1,10 @@
 -----------------------------------------------------------------------------------------
 --
--- credits_screen.lua
+-- instructions_screen.lua
 -- Created by: Alecka Victoria
 -- Special thanks to Wal Wal for helping in the design of this framework.
 --  Date: November 20, 2017
--- Description: This is the credits page, displaying a back button to the main menu.
+-- Description: This is the instructions page, displaying a back button to the main menu.
 -----------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------
